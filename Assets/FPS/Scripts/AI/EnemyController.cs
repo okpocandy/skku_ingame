@@ -372,6 +372,9 @@ namespace Unity.FPS.AI
                 Instantiate(LootPrefab, transform.position, Quaternion.identity);
             }
 
+            // 적 처치 시 골드 추가
+            CurrencyManager.Instance.Add(ECurrencyType.Gold, 100);
+
             // this will call the OnDestroy function
             Destroy(gameObject, DeathDuration);
         }
