@@ -2,8 +2,9 @@ using Gpm.Ui;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnlimitedScrollUI;
 
-public class UI_AchievementSlot : MonoBehaviour
+public class UI_AchievementSlot : RegularCell
 {
     public TextMeshProUGUI NameTextUI;
     public TextMeshProUGUI DescriptionTextUI;
