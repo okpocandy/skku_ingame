@@ -73,4 +73,33 @@ public class Achievement
         }
         _currentValue += value;
     }
+
+    public bool CanClaimReward()
+    {
+        return _currentValue >= GoalValue && !RewardClaimed;
+    }
+
+    public bool TryClaimReward()
+    {
+        if(!CanClaimReward())
+        {
+            return false;
+        }
+        _rewardClaimed = true;
+        return true;
+    }
+
+    public void SetCurrentValue(int value)
+    {
+        if(value < 0)
+        {
+            throw new Exception("현재 값은 0보다 커야 합니다. - SetCurrentValue");
+        }
+        _currentValue = value;
+    }
+
+    public void SetRewardClaimed(bool value)
+    {
+        _rewardClaimed = value;
+    }
 }

@@ -14,7 +14,7 @@ public class UII_Achievement : MonoBehaviour
 
     private void Refresh()
     {
-        List<Achievement> achievements = AchievementManager.Instance.AchievementList;
+        List<AchievementDTO> achievements = AchievementManager.Instance.AchievementList;
 
         for(int i=0; i < achievements.Count; i++)
         {

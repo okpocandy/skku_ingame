@@ -135,7 +135,7 @@ MonoBehaviour:
   RewardCountTextUI: {fileID: 3446907630640561539}
   CurrentValueTextUI: {fileID: 1399289766824020032}
   ProgressSlider: {fileID: 8726810342273464868}
-  RewardClaimData: {fileID: 2627903526720120347}
+  RewardClaimDateTextUI: {fileID: 0}
   RewardClaimButtion: {fileID: 3120300975649295694}
 --- !u!1 &3347707347104387782
 GameObject:
@@ -877,7 +877,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8500459565950836745}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2480698996747058405}
+        m_TargetAssemblyTypeName: UI_AchievementSlot, Assembly-CSharp
+        m_MethodName: ClaimReward
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4992748370907020536
 GameObject:
   m_ObjectHideFlags: 0
