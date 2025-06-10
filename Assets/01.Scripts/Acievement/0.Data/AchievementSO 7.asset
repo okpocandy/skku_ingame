@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44a9c096253a05245b6f499551c10d40, type: 3}
   m_Name: AchievementSO 7
   m_EditorClassIdentifier: 
-  _id: ACH_HIDDEN_001
-  _name: "\uB208\uC370\uBBF8"
-  _description: "\uD2B9\uC815 \uC704\uCE58\uC758 \uC228\uACA8\uC9C4 \uC7A5"
-  _condition: 4
-  _goalValue: 777
-  _rewardCurrencyType: 1
-  _rewardAmount: 10
+  _id: ACH_KILL_DRONE_003
+  _name: "\uB4DC\uB860 \uD5CC\uD130"
+  _description: "\uD2B8\uB860 \uD0C0\uC785 \uBAAC\uC2A4\uD130 30\uB9C8\uB9AC \uCC98\uCE58"
+  _condition: 1
+  _goalValue: 30
+  _rewardCurrencyType: 0
+  _rewardAmount: 3000

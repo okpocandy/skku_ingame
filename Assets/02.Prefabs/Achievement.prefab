@@ -48,6 +48,7 @@ GameObject:
   - component: {fileID: 112538546285570421}
   - component: {fileID: 5944161943386388479}
   - component: {fileID: 2480698996747058405}
+  - component: {fileID: -831730070219066746}
   m_Layer: 5
   m_Name: Achievement
   m_TagString: Untagged
@@ -137,6 +138,19 @@ MonoBehaviour:
   ProgressSlider: {fileID: 8726810342273464868}
   RewardClaimDateTextUI: {fileID: 0}
   RewardClaimButtion: {fileID: 3120300975649295694}
+--- !u!114 &-831730070219066746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1875469519820621725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25fcf04b6d85f634f9b270d6fe506d61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  autoApplySize: 0
 --- !u!1 &3347707347104387782
 GameObject:
   m_ObjectHideFlags: 0
