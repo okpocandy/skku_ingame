@@ -13,6 +13,8 @@ public class AchievementManager : Singleton<AchievementManager>
     public event Action OnDataChanged;
     public event Action<AchievementDTO> OnNewAchievementClaimed;
 
+    public GameObject NotificationPrefab;
+
     private void Awake()
     {
         Init();
