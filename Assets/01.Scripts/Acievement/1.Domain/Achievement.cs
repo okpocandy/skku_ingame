@@ -1,5 +1,7 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 
 public enum EAchievementCondition
 {
@@ -32,7 +34,7 @@ public class Achievement
 
 
     // 생성자
-    public Achievement(AchievementSO metaData)
+    public Achievement(AchievementSO metaData, AchievementDTO saveData)
     {
         if(string.IsNullOrEmpty(metaData.ID))
         {
@@ -55,6 +57,10 @@ public class Achievement
         {
             throw new Exception("보상 값은 0보다 커야 합니다.");
         }
+        if(saveData != null && saveData.CurrentValue < 0)
+        {
+            throw new Exception("현재 값은 0보다 커야 합니다. - Achievement");
+        }
 
         ID = metaData.ID;
         Name = metaData.Name;
@@ -63,6 +69,14 @@ public class Achievement
         GoalValue = metaData.GoalValue;
         RewardCurrencyType = metaData.RewardCurrencyType;
         RewardAmount = metaData.RewardAmount;
+
+        if(saveData != null)
+        {
+            _currentValue = saveData.CurrentValue;
+            _rewardClaimed = saveData.RewardClaimed;
+        }
+
+        
     }
 
     public void Increase(int value)
@@ -87,19 +101,5 @@ public class Achievement
         }
         _rewardClaimed = true;
         return true;
-    }
-
-    public void SetCurrentValue(int value)
-    {
-        if(value < 0)
-        {
-            throw new Exception("현재 값은 0보다 커야 합니다. - SetCurrentValue");
-        }
-        _currentValue = value;
-    }
-
-    public void SetRewardClaimed(bool value)
-    {
-        _rewardClaimed = value;
     }
 }

@@ -20,7 +20,7 @@ public class AchievementRepository
         PlayerPrefs.SetString(SAVE_KEY, json);
     }
 
-    public List<AchievementSaveData> Load()
+    public List<AchievementDTO> Load()
     {
         if (!PlayerPrefs.HasKey(SAVE_KEY))
         {
@@ -29,7 +29,15 @@ public class AchievementRepository
 
         string json = PlayerPrefs.GetString(SAVE_KEY);
         AchievementSaveDatas datas = JsonUtility.FromJson<AchievementSaveDatas>(json);
-        return datas.DataList;
+        
+        List<AchievementDTO> dtoList = new List<AchievementDTO>();
+
+        foreach(var data in datas.DataList)
+        {
+            dtoList.Add(new AchievementDTO(data.ID, data.CurrentValue, data.RewardClaimed));
+        }
+        
+        return dtoList;
     }
     
 }

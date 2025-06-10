@@ -20,7 +20,10 @@ public class AchievementManager : Singleton<AchievementManager>
 
     private void Init()
     {
+        _repository = new AchievementRepository();
         _achievementList = new List<Achievement>();
+    
+        List<AchievementDTO> loadedDataList = _repository.Load();
 
         foreach (var metaData in _metaDataList)
         {
@@ -29,23 +32,9 @@ public class AchievementManager : Singleton<AchievementManager>
             {
                 throw new Exception($"업적 ID({metaData.ID})가 중복됩니다.");
             }
-            _achievementList.Add(new Achievement(metaData));
-        }
-
-        _repository = new AchievementRepository();
-
-        List<AchievementSaveData> loadedDataList = _repository.Load();
-        if(loadedDataList != null)
-        {
-            foreach(var data in loadedDataList)
-            {
-                Achievement achievement = _achievementList.Find(a => a.ID == data.ID);
-                if(achievement != null)
-                {
-                    achievement.SetCurrentValue(data.CurrentValue);
-                    achievement.SetRewardClaimed(data.RewardClaimed);
-                }
-            }
+            AchievementDTO saveData = loadedDataList?.Find(x => x.ID == metaData.ID) ?? null;
+            // 구조체는 실패해도 기본값이 들어간다.
+            _achievementList.Add(new Achievement(metaData, saveData));
         }
     }
 
