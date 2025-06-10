@@ -374,6 +374,7 @@ namespace Unity.FPS.AI
 
             // 적 처치 시 골드 추가
             CurrencyManager.Instance.Add(ECurrencyType.Gold, 100);
+            AchievementManager.Instance.Increase(EAchievementCondition.DronKillCount, 1);
 
             // this will call the OnDestroy function
             Destroy(gameObject, DeathDuration);

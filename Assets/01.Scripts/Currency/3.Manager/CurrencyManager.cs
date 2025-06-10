@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.FPS.Game;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 
@@ -41,6 +42,7 @@ public class CurrencyManager : Singleton<CurrencyManager>
         }
     }
 
+ 
     public void Add(ECurrencyType type, int value)
     {
         _currencyDict[type].Add(value);
@@ -48,6 +50,12 @@ public class CurrencyManager : Singleton<CurrencyManager>
         Debug.Log($"{type} : {_currencyDict[type].Value}");
 
         _currencyRepository.Save(ToDtoList());
+
+        // 리팩토링 해주면 좋긴 함
+        if(type == ECurrencyType.Gold)
+        {
+            AchievementManager.Instance.Increase(EAchievementCondition.GoldCollect, value);
+        }
 
         OnDataChanged?.Invoke();
     }

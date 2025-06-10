@@ -33,6 +33,8 @@ namespace Unity.FPS.UI
         Health m_PlayerHealth;
         FramerateCounter m_FramerateCounter;
 
+        public GameObject AchievementPanel;
+
         void Start()
         {
             m_PlayerInputsHandler = FindObjectOfType<PlayerInputHandler>();
@@ -81,6 +83,8 @@ namespace Unity.FPS.UI
                 if (ControlImage.activeSelf)
                 {
                     ControlImage.SetActive(false);
+
+                    
                     return;
                 }
 
@@ -115,6 +119,7 @@ namespace Unity.FPS.UI
                 AudioUtility.SetMasterVolume(VolumeWhenMenuOpen);
 
                 EventSystem.current.SetSelectedGameObject(null);
+                AchievementPanel.SetActive(true);
             }
             else
             {
@@ -122,6 +127,7 @@ namespace Unity.FPS.UI
                 Cursor.visible = false;
                 Time.timeScale = 1f;
                 AudioUtility.SetMasterVolume(1);
+                AchievementPanel.SetActive(false);
             }
 
         }
