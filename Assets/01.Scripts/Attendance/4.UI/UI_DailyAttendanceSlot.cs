@@ -19,8 +19,11 @@ public class UI_DailyAttendanceSlot : MonoBehaviour
         RewardIconImage.sprite = rewardIcon;
         RewardCheck.SetActive(isClaimed);
 
-        // 보상을 받지 않았다면 흰색, 받았다면 회색
-        BackgroundImage.color = isClaimed ? Color.gray : Color.black;
+        // 누적 날짜가 보상 날짜보다 크거나 같고 보상을 받지 않았다면 검은색
+        if(AttendanceManager.Instance.AttendanceState.TotalAttendanceCount >= dailyAttendance.Day && !isClaimed)
+        {
+            BackgroundImage.color = Color.black;
+        }
 
     }
 
