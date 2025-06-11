@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b8b08a51d79fcb34b8737843dd89978e, type: 3}
-  m_Name: DailyAttendanceSO1 4
+  m_Name: DailyAttendanceSO1 21
   m_EditorClassIdentifier: 
-  _day: 4
+  _day: 21
   _currencyType: 0
-  _amount: 150
+  _amount: 1000

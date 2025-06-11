@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _day: 5
   _currencyType: 0
-  _amount: 5
+  _amount: 150

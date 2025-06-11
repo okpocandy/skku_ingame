@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8b08a51d79fcb34b8737843dd89978e, type: 3}
-  m_Name: DailyAttendanceSO1 4
+  m_Script: {fileID: 11500000, guid: c374e92943b94780ac9a7540b67b2eac, type: 3}
+  m_Name: StreakAttendanceSO 5
   m_EditorClassIdentifier: 
-  _day: 4
-  _currencyType: 0
-  _amount: 150
+  _streakDate: 5
+  _currencyType: 1
+  _amount: 1
