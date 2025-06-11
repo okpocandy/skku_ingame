@@ -4,7 +4,8 @@ using System;
 
 public class AttendanceState
 {
-    private  DateTime _lastCheckDate;              // 마지막 출석 체크 날짜
+    private DateTime _lastCheckDate;              // 마지막 출석 체크 날짜
+    public DateTime LastCheckDate => _lastCheckDate;
     private int _currentAttendanceCount;     // 달마다 초기화되는 누적 일수
     public int CurrentAttendanceCount => _currentAttendanceCount;
     private int _continousAttendanceCount;   // 연속 출석 일수
@@ -15,8 +16,11 @@ public class AttendanceState
     public List<int> ClaimedRewardDays => _claimedRewardDays;
     private List<int> _claimedStreakDays;    // 연속 출석 보상 받은 날짜
     public List<int> ClaimedStreakDays => _claimedStreakDays;
+    private string _playerID;
+    public string PlayerID => _playerID;
 
-    public AttendanceState(DateTime lastCheckDate, int currentAttendanceCount, int continousAttendanceCount, int totalAttendanceCount, List<int> claimedRewardDays, List<int> claimedStreakDays)
+    public AttendanceState(DateTime lastCheckDate, int currentAttendanceCount, int continousAttendanceCount,
+                            int totalAttendanceCount, List<int> claimedRewardDays, List<int> claimedStreakDays, string playerID)
     {
         if(lastCheckDate <= DateTime.Now)
         {
@@ -41,6 +45,7 @@ public class AttendanceState
         _totalAttendanceCount = totalAttendanceCount;
         _claimedRewardDays = claimedRewardDays;
         _claimedStreakDays = claimedStreakDays;
+        _playerID = playerID;
     }
 
     public void AddClaimRewardDay(int day)
