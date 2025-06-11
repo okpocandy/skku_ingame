@@ -7,9 +7,9 @@ public class AttendanceManager : MonoBehaviour
     public static AttendanceManager Instance;
     
     private List<DailyAttendanceReward> _dailyAttendanceRewards;
-    private List<StreakRewardRule> _streakRewardRules;
-    
     public List<DailyAttendanceRewardDTO> DailyAttendanceRewards => _dailyAttendanceRewards.ConvertAll(a => new DailyAttendanceRewardDTO(a));
+    
+    private List<StreakRewardRule> _streakRewardRules;
     public List<StreakRewardRuleDTO> StreakRewardRules => _streakRewardRules.ConvertAll(a => new StreakRewardRuleDTO(a));
     
     [Header("정적 보상 데이터(SO)")]
@@ -35,30 +35,32 @@ public class AttendanceManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
         Init();
     }
 
     private void Init()
-    {
-        _attendanceStateRepository = new AttendanceStateRepository();
+    { 
         _dailyAttendanceRewards = new List<DailyAttendanceReward>();
+        foreach (var so in _dailyAttendanceSOList)
+        {
+            _dailyAttendanceRewards.Add(new DailyAttendanceReward(so.Day, so.CurrencyType, so.Amount));
+        }
         _streakRewardRules = new List<StreakRewardRule>();
-        
-        
+        foreach (var so in _streakAttendanceSOList)
+        {
+            _streakRewardRules.Add(new StreakRewardRule(so.StreakDate, so.CurrencyType, so.Amount));
+        }
 
-    }
-
-    private void Start()
-    {
-        //_attendanceState = _attendanceStateRepository.Load();
+        var dto = _attendanceStateRepository.Load();
+        _attendanceState = dto != null ? dto.ToDomain() : new AttendanceState(DateTime.MinValue, 0, 0, 0, new List<int>(), new List<int>(), "player01");
     }
 
     public bool CanCheckToday()
     {
         return _attendanceState.IsOneDayPassed();
     }
-
+    
+    // 오늘 이미 출석했는지 확인
     public void TryCheckIn(string playerID)
     {
         if (!CanCheckToday()) return;
@@ -71,15 +73,16 @@ public class AttendanceManager : MonoBehaviour
         GiveStreakReward();
         
         // 저장
-        //_attendanceStateRepository.Save(_attendanceState);
+        _attendanceStateRepository.Save(new AttendanceStateDTO(_attendanceState));
         
         // UI 업데이트 이벤트 호출
-        //OnAttendanceStateChanged?.Invoke(_attendanceState.);
+        OnAttendanceStateChanged?.Invoke(new AttendanceStateDTO(_attendanceState));
     }
 
+    // 일일 보상 지급 세부 처리
     private void GiveDailyReward()
     {
-        var today = _attendanceState.CurrentAttendanceCount;
+        int today = _attendanceState.CurrentAttendanceCount;
         var reward = _dailyAttendanceSOList.Find(x => x.Day == today);
         if (reward != null && !_attendanceState.isClaimedRewardDay(today))
         {
@@ -88,11 +91,13 @@ public class AttendanceManager : MonoBehaviour
         }
     }
 
+    // 연속 보상 지급 세부 처리
     private void GiveStreakReward()
     {
+        int streak = _attendanceState.ContinousAttendanceCount;
+        
         foreach (var rule in _streakAttendanceSOList)
         {
-            int streak = _attendanceState.ContinousAttendanceCount;
 
             if (streak == rule.StreakDate && !_attendanceState.isClaimedRewardDay(streak))
             {
@@ -101,10 +106,9 @@ public class AttendanceManager : MonoBehaviour
             }
         }
     }
-    
-    // public AttendanceState GetAttendanceState() => _attendanceState.;
-    
-    
-    
-    
+
+    public AttendanceStateDTO GetCurrentAttendanceState()
+    {
+        return new AttendanceStateDTO(_attendanceState);
+    }
 }
