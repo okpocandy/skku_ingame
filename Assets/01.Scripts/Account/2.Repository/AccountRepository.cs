@@ -1,14 +1,14 @@
-using System;
-using UnityEngine;
+ using UnityEngine;
 
 public class AccountRepository
 {
-    private const string SAVE_PREFIX = "ACCOUNT_";
-
-    public void Save(AccountDTO accountDTO)
+    public const string SAVE_PREFIX = "ACCOUNT_";
+    
+    public void Save(AccountDTO accountDto)
     {
-        AccountSaveData data = new AccountSaveData(accountDTO);
+        AccountSaveData data = new AccountSaveData(accountDto);
         string json = JsonUtility.ToJson(data);
+        
         PlayerPrefs.SetString(SAVE_PREFIX + data.Email, json);
     }
 
@@ -18,22 +18,23 @@ public class AccountRepository
         {
             return null;
         }
-
+        
         return JsonUtility.FromJson<AccountSaveData>(PlayerPrefs.GetString(SAVE_PREFIX + email));
     }
+    
+    
 }
 
-[Serializable]
 public class AccountSaveData
 {
     public string Email;
     public string Nickname;
     public string Password;
 
-    public AccountSaveData(AccountDTO accountDTO)
+    public AccountSaveData(AccountDTO accountDto)
     {
-        Email = accountDTO.Email;
-        Nickname = accountDTO.Nickname;
-        Password = accountDTO.Password;
+        Email = accountDto.Email;
+        Nickname = accountDto.Nickname;
+        Password = accountDto.Password;
     }
 }
