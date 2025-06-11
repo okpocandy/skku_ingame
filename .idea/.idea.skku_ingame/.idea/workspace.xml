@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="82d9d4f3-d9d3-45b4-ab9c-70aac960ca0d" name="변경" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.skku_ingame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.skku_ingame/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/01.Scripts/Attendance/3.Manager/AttendanceManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01.Scripts/Attendance/3.Manager/AttendanceManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -20,9 +19,9 @@
     <setting file="file://$PROJECT_DIR$/Assets/01.Scripts/Attendance/00.Data/StreakAttendanceSO.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/01.Scripts/Attendance/3.Manager/AttendanceManager.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 8
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
   <component name="ProjectId" id="2yLtdtyez5XYKIHZ1p3fAlMT5GT" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -32,7 +31,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "hyeon-dev",
+    "git-widget-placeholder": "main",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",

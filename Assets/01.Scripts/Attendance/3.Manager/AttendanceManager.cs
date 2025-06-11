@@ -10,15 +10,15 @@ public class AttendanceManager : MonoBehaviour
     private List<StreakRewardRule> _streakRewardRules;
     
     [Header("정적 보상 데이터(SO)")]
-    [SerializeField] private List<DailyAttendanceSO> _dailyAttendanceList;
-    public List<DailyAttendanceSO> DailyAttendanceList => _dailyAttendanceList;
+    [SerializeField] private List<DailyAttendanceSO> _dailyAttendanceSOList;
+    public List<DailyAttendanceSO> DailyAttendanceList => _dailyAttendanceSOList;
     
-    [SerializeField] private List<StreakAttendanceSO> _streakAttendanceList;
-    public List<StreakAttendanceSO> StreakAttendanceList  => _streakAttendanceList;
+    [SerializeField] private List<StreakAttendanceSO> _streakAttendanceSOList;
+    public List<StreakAttendanceSO> StreakAttendanceList  => _streakAttendanceSOList;
 
-    private AttendanceState _attendanceState;
     [SerializeField] AttendanceStateRepository _attendanceStateRepository;
     
+    private AttendanceState _attendanceState;
     public event Action<AttendanceStateDTO>  OnAttendanceStateChanged;
     
     private void Awake()
@@ -39,7 +39,11 @@ public class AttendanceManager : MonoBehaviour
     private void Init()
     {
         _attendanceStateRepository = new AttendanceStateRepository();
+        _dailyAttendanceRewards = new List<DailyAttendanceReward>();
+        _streakRewardRules = new List<StreakRewardRule>();
         
+        
+
     }
 
     private void Start()
@@ -73,7 +77,7 @@ public class AttendanceManager : MonoBehaviour
     private void GiveDailyReward()
     {
         var today = _attendanceState.CurrentAttendanceCount;
-        var reward = _dailyAttendanceList.Find(x => x.Day == today);
+        var reward = _dailyAttendanceSOList.Find(x => x.Day == today);
         if (reward != null && !_attendanceState.isClaimedRewardDay(today))
         {
             CurrencyManager.Instance.Add(reward.CurrencyType, reward.Amount);
@@ -83,7 +87,7 @@ public class AttendanceManager : MonoBehaviour
 
     private void GiveStreakReward()
     {
-        foreach (var rule in _streakAttendanceList)
+        foreach (var rule in _streakAttendanceSOList)
         {
             int streak = _attendanceState.ContinousAttendanceCount;
 
