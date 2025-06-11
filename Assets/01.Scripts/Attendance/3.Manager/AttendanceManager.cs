@@ -9,6 +9,9 @@ public class AttendanceManager : MonoBehaviour
     private List<DailyAttendanceReward> _dailyAttendanceRewards;
     private List<StreakRewardRule> _streakRewardRules;
     
+    public List<DailyAttendanceRewardDTO> DailyAttendanceRewards => _dailyAttendanceRewards.ConvertAll(a => new DailyAttendanceRewardDTO(a));
+    public List<StreakRewardRuleDTO> StreakRewardRules => _streakRewardRules.ConvertAll(a => new StreakRewardRuleDTO(a));
+    
     [Header("정적 보상 데이터(SO)")]
     [SerializeField] private List<DailyAttendanceSO> _dailyAttendanceSOList;
     public List<DailyAttendanceSO> DailyAttendanceList => _dailyAttendanceSOList;
