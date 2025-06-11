@@ -5,13 +5,13 @@ using System.Collections.Generic;
 [Serializable]
 public class AttendanceStateDTO
 {
-    public string LastCheckDate;              // 마지막 출석 체크 날짜 (DateTime을 string으로 저장)
-    public int CurrentAttendanceCount;        // 달마다 초기화되는 누적 일수
-    public int ContinousAttendanceCount;      // 연속 출석 일수
-    public int TotalAttendanceCount;          // 전체 누적 일수
-    public List<int> ClaimedRewardDays;       // 보상 받은 날짜
-    public List<int> ClaimedStreakDays;       // 연속 출석 보상 받은 날짜
-    public string PlayerID;                   // 플레이어 ID
+    public readonly string LastCheckDate;              // 마지막 출석 체크 날짜 (DateTime을 string으로 저장)
+    public readonly int CurrentAttendanceCount;        // 달마다 초기화되는 누적 일수
+    public readonly int ContinousAttendanceCount;      // 연속 출석 일수
+    public readonly int TotalAttendanceCount;          // 전체 누적 일수
+    public readonly List<int> ClaimedRewardDays;       // 보상 받은 날짜
+    public readonly List<int> ClaimedStreakDays;       // 연속 출석 보상 받은 날짜
+    public readonly string PlayerID;                   // 플레이어 ID
 
     public AttendanceStateDTO()
     {
