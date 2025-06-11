@@ -1,10 +1,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UI_Attendance : MonoBehaviour
+public class UI_DailyAttendance : MonoBehaviour
 {
     [SerializeField]
-    private List<UI_AttendanceSlot> _slotList = new List<UI_AttendanceSlot>();
+    private List<UI_DailyAttendanceSlot> _dailySlotList = new List<UI_DailyAttendanceSlot>();
     [SerializeField]
     private List<Sprite> _rewardIconList;               // 골드 다이아 루비 순서
 
@@ -17,14 +17,14 @@ public class UI_Attendance : MonoBehaviour
     }
     private void Refresh()
     {
-        List<DailyAttendanceSO> dailyRewardList = AttendanceManager.Instance.DailyAttendanceList;
+        List<DailyAttendanceRewardDTO> dailyRewardList = AttendanceManager.Instance.DailyAttendanceRewards;
 
-        for (int i=0; i<_slotList.Count; i++)
+        for (int i=0; i<_dailySlotList.Count; i++)
         {
-            UI_AttendanceSlot slot = _slotList[i];
+            UI_DailyAttendanceSlot slot = _dailySlotList[i];
             slot.Refresh(dailyRewardList[i], 
             _rewardIconList[(int)dailyRewardList[i].CurrencyType],
-            _attendanceState.isClaimedRewardDay(i));
+            _attendanceState.isClaimedRewardDay(dailyRewardList[i].Day));
         }
 
     }
