@@ -20,7 +20,7 @@ public class UI_DailyAttendanceSlot : MonoBehaviour
         RewardCheck.SetActive(isClaimed);
 
         // 보상을 받지 않았다면 흰색, 받았다면 회색
-        BackgroundImage.color = isClaimed ? Color.gray : Color.white;
+        BackgroundImage.color = isClaimed ? Color.gray : Color.black;
 
     }
 

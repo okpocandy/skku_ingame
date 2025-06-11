@@ -164,6 +164,7 @@ GameObject:
   - component: {fileID: 13439107}
   - component: {fileID: 13439106}
   - component: {fileID: 13439108}
+  - component: {fileID: 13439109}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -232,6 +233,29 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 352b0613f6f44974bb98c1afb7d17195, type: 2}
   - {fileID: 11400000, guid: 352b0613f6f44974bb98c1afb7d17195, type: 2}
   - {fileID: 11400000, guid: 352b0613f6f44974bb98c1afb7d17195, type: 2}
+--- !u!114 &13439109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 13439105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 092c19f4ce315d44aa4c7aa2e55f6df0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dailyAttendanceSOList:
+  - {fileID: 11400000, guid: 4425051597e5bb640b103b7f1f724eab, type: 2}
+  - {fileID: 11400000, guid: 4723458daa711194cbde58c4a4b74ff1, type: 2}
+  - {fileID: 11400000, guid: a93a7af33d8947e4590bf7f5963e40bc, type: 2}
+  - {fileID: 11400000, guid: 21992b328c14c414da2e9ae06c25f908, type: 2}
+  - {fileID: 11400000, guid: 7df1c70c2bd39754c82fa7ce5895cf97, type: 2}
+  - {fileID: 11400000, guid: 95db314b8e8a34340bd0d946fe59f7f2, type: 2}
+  - {fileID: 11400000, guid: c2c0bc3c217cdda40838bd04591eac6d, type: 2}
+  - {fileID: 11400000, guid: ef1065a5609d6fa4ba4e758e5ec965f3, type: 2}
+  _streakAttendanceSOList: []
+  _attendanceStateRepository: {fileID: 0}
 --- !u!114 &115589622 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4445205549424833889, guid: cbcd4846b8b21b246a93a2743ad97d14,

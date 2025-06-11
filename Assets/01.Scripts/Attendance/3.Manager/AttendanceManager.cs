@@ -22,6 +22,7 @@ public class AttendanceManager : MonoBehaviour
     [SerializeField] AttendanceStateRepository _attendanceStateRepository;
     
     private AttendanceState _attendanceState;
+    public AttendanceState AttendanceState => _attendanceState;
     public event Action<AttendanceStateDTO>  OnAttendanceStateChanged;
     
     private void Awake()
@@ -39,7 +40,8 @@ public class AttendanceManager : MonoBehaviour
     }
 
     private void Init()
-    { 
+    {
+        _attendanceStateRepository = new AttendanceStateRepository();
         _dailyAttendanceRewards = new List<DailyAttendanceReward>();
         foreach (var so in _dailyAttendanceSOList)
         {
@@ -52,7 +54,7 @@ public class AttendanceManager : MonoBehaviour
         }
 
         var dto = _attendanceStateRepository.Load();
-        _attendanceState = dto != null ? dto.ToDomain() : new AttendanceState(DateTime.MinValue, 0, 0, 0, new List<int>(), new List<int>(), "player01");
+        _attendanceState = dto != null ? dto.ToDomain() : new AttendanceState(DateTime.MinValue, 1, 1, 1, new List<int>(), new List<int>(), "player01");
     }
 
     public bool CanCheckToday()

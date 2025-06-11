@@ -24,7 +24,7 @@ public class AttendanceState
     {
         if(lastCheckDate <= DateTime.Now)
         {
-            throw new Exception("마지막 출석 체크 날짜는 현재 날짜보다 이전이어야 합니다.");
+            //throw new Exception("마지막 출석 체크 날짜는 현재 날짜보다 이전이어야 합니다.");
         }
         if(currentAttendanceCount <= 0 || currentAttendanceCount > 28)
         {

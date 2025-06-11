@@ -13,6 +13,7 @@ public class UI_DailyAttendance : MonoBehaviour
     private void Start()
     {
         Refresh();
+        _attendanceState = AttendanceManager.Instance.AttendanceState;
         // TODO: 이벤트 구독?
     }
     private void Refresh()
@@ -24,7 +25,7 @@ public class UI_DailyAttendance : MonoBehaviour
             UI_DailyAttendanceSlot slot = _dailySlotList[i];
             slot.Refresh(dailyRewardList[i], 
             _rewardIconList[(int)dailyRewardList[i].CurrencyType],
-            _attendanceState.isClaimedRewardDay(dailyRewardList[i].Day));
+            AttendanceManager.Instance.AttendanceState.isClaimedRewardDay(dailyRewardList[i].Day));
         }
 
     }
