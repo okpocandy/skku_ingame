@@ -39,6 +39,11 @@ public class AttendanceManager : MonoBehaviour
         Init();
     }
 
+    private void Start()
+    {
+        TryCheckIn("player01");
+    }
+
     private void Init()
     {
         _attendanceStateRepository = new AttendanceStateRepository();
@@ -71,8 +76,8 @@ public class AttendanceManager : MonoBehaviour
         _attendanceState.Attendance();
         
         // 보상 처리
-        GiveDailyReward();
-        GiveStreakReward();
+        //GiveDailyReward();
+        //GiveStreakReward();
         
         // 저장
         _attendanceStateRepository.Save(new AttendanceStateDTO(_attendanceState));

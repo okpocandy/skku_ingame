@@ -94,7 +94,8 @@ public class AttendanceState
     {
         var now = DateTime.Now;
         var timeSpan = now - _lastCheckDate;
-        return timeSpan.TotalDays >= 1;
+        // 시간이 1초라도 지났다면 하루 지난거임
+        return timeSpan.TotalSeconds >= 1;
     }
 
     /// <summary>
@@ -127,8 +128,8 @@ public class AttendanceState
     {
         if(IsMonthChanged())
         {
-            _currentAttendanceCount = 0;
-            _continousAttendanceCount = 0;
+            _currentAttendanceCount = 1;
+            _continousAttendanceCount = 1;
         }
         else
         {
