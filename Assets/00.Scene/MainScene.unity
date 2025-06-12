@@ -254,6 +254,26 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 95db314b8e8a34340bd0d946fe59f7f2, type: 2}
   - {fileID: 11400000, guid: c2c0bc3c217cdda40838bd04591eac6d, type: 2}
   - {fileID: 11400000, guid: ef1065a5609d6fa4ba4e758e5ec965f3, type: 2}
+  - {fileID: 11400000, guid: e93c2251bdc409e42bede5ab9d8a6407, type: 2}
+  - {fileID: 11400000, guid: 92bcae59be7775c40a4754eae2991538, type: 2}
+  - {fileID: 11400000, guid: 23609666ded620344bf54a16e0d9ce33, type: 2}
+  - {fileID: 11400000, guid: f37883d533c376a43a0f350179fb2f47, type: 2}
+  - {fileID: 11400000, guid: 80929d3c641df954ab81f6d2ce2531da, type: 2}
+  - {fileID: 11400000, guid: f6e2ab85d1c183b4caf14f8ed009838e, type: 2}
+  - {fileID: 11400000, guid: 632f16b8a7ed55048b0a82877636273e, type: 2}
+  - {fileID: 11400000, guid: 1455c178865c0294ab0c16993cb405f0, type: 2}
+  - {fileID: 11400000, guid: d3491f52c0ffb3e4699aed9435e4cf4c, type: 2}
+  - {fileID: 11400000, guid: fbf0413649099044586f9125119f0d4c, type: 2}
+  - {fileID: 11400000, guid: a8418ed4c806f554aa705c9eab326957, type: 2}
+  - {fileID: 11400000, guid: 918ee106ba3ff194d9131c9a27051336, type: 2}
+  - {fileID: 11400000, guid: 2f4e65f91562c1d498f1c5c30e1e888a, type: 2}
+  - {fileID: 11400000, guid: 300b89de0bd46da4483fbabf4a558ced, type: 2}
+  - {fileID: 11400000, guid: a877c338b85c805408c3244468111623, type: 2}
+  - {fileID: 11400000, guid: 329c5c84124ef3d4f9fbb9318dab0a8b, type: 2}
+  - {fileID: 11400000, guid: d5a97bec2c46dfc44bdff6667118c479, type: 2}
+  - {fileID: 11400000, guid: 84480a4487555744fb2a635b66c77cd5, type: 2}
+  - {fileID: 11400000, guid: 17d8b6ae46885c04a81a4e2ee0d1734f, type: 2}
+  - {fileID: 11400000, guid: 9bacf9e38f3c073429659f6561571c27, type: 2}
   _streakAttendanceSOList: []
   _attendanceStateRepository: {fileID: 0}
 --- !u!114 &115589622 stripped
